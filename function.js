@@ -48,34 +48,23 @@ const sortedStrings = strings.sort();
 console.log(sortedStrings);
 
 // ---5---
-// Parent class
-function Animal(name) {
-  this.name = name;
+class School{
+    constructor(name, Class, grade, number, percentage){
+        (this.name=name),
+        (this.class=Class),
+        (this.grade=grade),
+        (this.number=number),
+        (this.percentage=percentage)
+    }
 }
-
-Animal.prototype.sound = function() {
-  console.log("Animal sound");
-};
-
-// Child class inheriting from Animal
-function Dog(name) {
-  Animal.call(this, name);
+class Exam extends School{
+    constructor(name, Class, grade, number, percentage, remarks) {
+      super(name,Class, grade, number, percentage);
+      (this.remarks=remarks);
+    } 
 }
-
-// Set up inheritance
-Dog.prototype = Object.create(Animal.prototype);
-Dog.prototype.constructor = Dog;
-
-// Override method for Dog class
-Dog.prototype.sound = function() {
-  console.log("Bark!");
-};
-
-// Create instances of Animal and Dog
-const animal = new Animal("Generic Animal");
-const dog = new Dog("Bobby");
-
-// Call methods
-animal.sound(); // Output: "Animal sound"
-dog.sound();    // Output: "Bark!"
+let school = new School("Ali","12th","A","780","78%");
+let exam = new Exam("Ali","12th","A","780","78%","Excellent");
+console.log(school);
+console.log(exam);
 
